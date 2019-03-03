@@ -1,37 +1,20 @@
-<h1>Body Building News</h1>
-<a class="articleURL" href="{{ this.articleURL }}">
-  <div id="picture">
-    <img src="{{ this.imgURL }}">
-  </div>
-</a>
-<div id="lifter">
-  <img src="img/snatch.png"/>
-  <div id="buttons">
-    <button id="next" data-id="{{ this._id }}">Next</button>
-  </div>
-</div>
-<a class="articleURL" href="{{ this.articleURL }}">
-  <div id="content">
-    <h2>{{ this.title }}</h2>
-    <p>{{ this.synopsis }}</p>
-  </div>
-</a>
-<div id="arms1">
-  <div class="comments">
-    <h3>Post a Comment:</h3>
-    <input id="comment" type="text" name="comment" placeholder="Type your comment here...">
-    <button id="post" data-id="{{ this._id }}">Post</button>
-  </div>
-  <img src="img/arms.png"/>
-</div>
-<div id="arms2">
-  <div class="comments">
-    <h3>Previously Left Comments:</h3>
-    <div id="comment-holder">
-      {{#each this.comments as |value key|}}
-        <p><span class="number">{{ addOne key }}</span> {{ value.text }} <a href="#" class="remove" data-id="{{ value._id }}">X</a></p>
-      {{/each}}
+<div>
+    <h1 class="card z-depth-3 center-align">Read the Latest from 'The Verge' in Tech</h1>
+    <div class="row">
+      <div class="col s3"></div>
+      <h5 class="card z-depth-3 center-align col s6">Click 'Scrape' to get the latest articles</h5>
     </div>
+</div>
+
+<div class="row">
+  <div class="col s2"></div>
+  <div class ="col s8 left-align">
+    {{#each article}}
+      <div class="card-panel">
+        <h4>{{this.title}}</h4>
+        {{!-- goes to article.handlebars --}}
+        <a href = "/readArticle/{{this._id}}" class="waves-effect waves-light btn pink lighten-1" id="btnSignUp">Read Article</a>
+      </div>
+    {{/each}}
   </div>
-  <img src="img/arms.png"/>
 </div>
